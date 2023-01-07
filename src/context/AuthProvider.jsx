@@ -45,7 +45,7 @@ const AuthProvider = ({ children }) => {
       }
     };
 
-    return () => autenticarUsuario();
+    autenticarUsuario();
   }, []);
 
   const cerrarSesionAuth = ()=>{

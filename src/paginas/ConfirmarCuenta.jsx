@@ -29,7 +29,7 @@ const ConfirmarCuenta = () => {
       }
     };
 
-    return () => ConfirmarCuenta();
+    ConfirmarCuenta();
   }, []);
 
   const { message } = alerta;

@@ -30,7 +30,7 @@ const NuevoPassword = () => {
         // console.log(error.response.data.message)
       }
     };
-    return () => comprobarToken();
+    comprobarToken();
   }, []);
 
   const handleSubmi = async (e) => {

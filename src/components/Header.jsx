@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import useProyectos from '../hooks/useProyectos'
 import useAuth from '../context/AuthProvider'
 import Busqueda from "./Busqueda";
-import { useEffect } from "react";
+
 
 const Header = () => {
   const {handleBuscador,cerrarSesionProyectos} = useProyectos()
