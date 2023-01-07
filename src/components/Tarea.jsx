@@ -3,7 +3,7 @@ import useProyectos from "../hooks/useProyectos";
 import useAdmin from "../hooks/useAdmin";
 
 const Tarea = ({ tarea }) => {
-  const { handleModalEditarTarea, handleModalEliminarTarea, completarTarea } =
+  const { handleModalEditarTarea, handleModalEliminarTarea, completarTarea,cargandoCompletar } =
     useProyectos();
   const admin = useAdmin();
   const { _id, nombre, descripcion, prioridad, fechaEntrega, estado } = tarea;
@@ -30,7 +30,7 @@ const Tarea = ({ tarea }) => {
         {admin && (
           <button
             onClick={() => handleModalEditarTarea(tarea)}
-            className="bg-indigo-600 px-4 py-3 text-white uppercase text-sm rounded-lg"
+            className="bg-cyan-100 px-4 py-3 text-sky-500 font-bold uppercase text-sm rounded-lg"
           >
             Editar
           </button>
@@ -38,15 +38,19 @@ const Tarea = ({ tarea }) => {
 
         <button
           onClick={() => completarTarea(_id)}
-          className={`${estado ? 'bg-green-500' :'bg-yellow-500'} px-4 py-3 text-white uppercase text-sm rounded-lg`}
+          disabled={cargandoCompletar}
+          className={`${estado ? 'bg-green-200 text-green-500' :'bg-orange-100 text-orange-500'} px-4 py-3 text-white font-bold uppercase text-sm rounded-lg`}
         >
-          {estado ? 'Completa' :'Incompleta'}
+          {/* {estado ? 'Completada' : cargandoCompletar ? <Spinner/> : 'Completar 1' ? 'Completar 2' : 'Completar 3' } */}
+          {estado ? 'Completada' : 'Incompleta'  }
+          
+          
         </button>
 
         {admin && (
           <button
             onClick={() => handleModalEliminarTarea(tarea)}
-            className="bg-red-600 px-4 py-3 text-white uppercase text-sm rounded-lg"
+            className="bg-red-200 text-red-500 px-4 py-3 font-bold uppercase text-sm rounded-lg"
           >
             Eliminar
           </button>

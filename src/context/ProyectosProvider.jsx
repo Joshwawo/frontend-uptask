@@ -18,6 +18,7 @@ const ProyectosProvider = ({ children }) => {
   const [colaborador, setColaborador] = useState({})
   const [modalEliminarColaborador, setModalEliminarColaborador] = useState(false)
   const [modalBuscador, setModalBuscador] = useState(false)
+  const [cargandoCompletar, setCargandoCompletar] = useState(false)
   
   const navigate = useNavigate();
   const {auth} = useAuth()
@@ -91,6 +92,12 @@ const ProyectosProvider = ({ children }) => {
         message: "Proyecto actualizado correctamente",
         error: false,
       });
+
+      navigate("/proyectos");
+
+      setTimeout(() => {
+        setAlerta({});
+      }, 2000);
       //redireccionar
       // console.log(data);
     } catch (error) {
@@ -206,6 +213,7 @@ const ProyectosProvider = ({ children }) => {
   };
 
   const crearTarea = async (tarea) => {
+    setCargandoCompletar(true)
     try {
       const token = localStorage.getItem("token");
       if (!token) return;
@@ -230,10 +238,16 @@ const ProyectosProvider = ({ children }) => {
       socket.emit('nueva-tarea', data)
     } catch (error) {
       console.log(error);
+    }finally{
+      setCargandoCompletar(false)
+      // setTimeout(() => {
+      //   setCargandoCompletar(false)
+      // }, 2000);
     }
   };
 
   const editarTarea = async (tarea) => {
+    setCargandoCompletar(true)
     try {
       const token = localStorage.getItem("token");
       if (!token) return;
@@ -262,6 +276,8 @@ const ProyectosProvider = ({ children }) => {
       socket.emit('actualizar-tarea',data)
     } catch (error) {
       console.log(error);
+    }finally{
+      setCargandoCompletar(false)
     }
   };
 
@@ -422,6 +438,7 @@ const ProyectosProvider = ({ children }) => {
   }
   const completarTarea = async(id)=>{
     // console.log(id)
+    setCargandoCompletar(true)
     try {
       const token = localStorage.getItem("token");
       if (!token) return;
@@ -441,8 +458,11 @@ const ProyectosProvider = ({ children }) => {
       setTarea({})
       setAlerta({})
       socket.emit('cambiar-estado',data)
+      
     } catch (error) {
       console.log(error.response)
+    }finally{
+      setCargandoCompletar(false)
     }
   }
 
@@ -521,6 +541,7 @@ const ProyectosProvider = ({ children }) => {
         actualizarTareaProyecto,
         cambiarEstadoTarea,
         cerrarSesionProyectos,
+        cargandoCompletar,
 
 
         

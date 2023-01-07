@@ -1,8 +1,6 @@
-import {useEffect} from "react";
 import PreviewProyecto from "../components/PreviewProyecto";
 import useProyectos from "../hooks/useProyectos";
 import Alerta from '../components/Alerta'
-import io from 'socket.io-client'
 
 // let socket;
 
@@ -23,8 +21,8 @@ const Proyectos = () => {
   const {message} = alerta
   // console.log('Desde Proyectos',proyectos)
   return (
-    <>
-      <h1 className="font-black text-4xl">Proyectos</h1>
+    <div className="mt-10">
+      <h1 className="text-center xl:text-start font-bold text-4xl uppercase">Proyectos</h1>
         {message && <Alerta alerta={alerta}/>}
       <div className="bg-white shadow mt-10 rounded-lg">
         {proyectos.length ? (
@@ -35,7 +33,7 @@ const Proyectos = () => {
           <p className="text-center text-gray-600 uppercase p-5">No hay proyectos aun</p>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

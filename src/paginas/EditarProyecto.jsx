@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import useProyectos from "../hooks/useProyectos";
 import { useParams } from "react-router-dom";
 import FormularioProyecto from "../components/FormularioProyecto";
+import Spinner from '../components/Spinner'
+import { Fragment } from "react";
 
 const EditarProyecto = () => {
   const { obtenerProyecto, proyecto, cargando,eliminarProyecto } = useProyectos();
@@ -21,14 +23,14 @@ const EditarProyecto = () => {
     }
   };
 
-  if (cargando) return "Cargando...";
+  if (cargando) return <Spinner/>
   return (
-    <>
-      <div className="flex justify-between">
-        <p className="font-black text-4xl">
+    <div className="mt-10 ">
+      <div className="flex  justify-between text-center">
+        <p className="font-black text-4xl text-end">
           Editar Proyecto: {proyecto.nombre}
         </p>
-        <div className="flex items-center gap-2 text-gray-400 hover:text-black">
+        <div className="flex items-center gap-2 text-gray-400 hover:text-red-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -53,7 +55,7 @@ const EditarProyecto = () => {
       <div className="mt-10 flex justify-center">
         <FormularioProyecto />
       </div>
-    </>
+    </div>
   );
 };
 
