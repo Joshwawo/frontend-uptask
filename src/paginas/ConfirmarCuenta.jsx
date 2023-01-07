@@ -13,8 +13,6 @@ const ConfirmarCuenta = () => {
     const ConfirmarCuenta = async () => {
       try {
         const url = `/api/usuarios/confirmar/${id}`;
-        // console.log(url);
-        // const { data } = await axios.get(url);
       const {data} =  await clienteAxios.get(url)
         setAlerta({
           message: data.message,
