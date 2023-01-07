@@ -1,3 +1,4 @@
+import {useEffect} from 'react'
 import { Link } from "react-router-dom";
 import useProyectos from '../hooks/useProyectos'
 import useAuth from '../context/AuthProvider'
@@ -7,14 +8,27 @@ import Busqueda from "./Busqueda";
 const Header = () => {
   const {handleBuscador,cerrarSesionProyectos} = useProyectos()
   const {cerrarSesionAuth, auth} = useAuth()
-
+  {document.title = `UpTask - ${auth.nombre}`}
+  
   const hanleCerrarSesion = ()=>{
     cerrarSesionAuth()
     cerrarSesionProyectos()
     localStorage.removeItem('token')
    
   }
-  {document.title = `UpTask - ${auth.nombre}`}
+
+  useEffect(()=>{
+    const handleKeyDown = (e)=>{
+      if(e.ctrlKey && e.key === 'i'){
+        console.log('Precionaste ctrl + i, desde el header.jsx')
+        handleBuscador()
+      }
+    }
+    window.addEventListener('keydown',handleKeyDown)
+    return ()=>{
+      window.removeEventListener('keydown',handleKeyDown)
+    }
+  },[])
   return (
     <header className="px-4 py-5 bg-white border-b">
       <div className="md:flex md:justify-between">
@@ -28,7 +42,7 @@ const Header = () => {
         </Link>
         
         <div className="flex items-center md gap-4">
-          <button onClick={handleBuscador} type="button" className="font-bold uppercase">Buscar Proyecto</button>
+          <button onClick={handleBuscador} type="button" className="font-bold uppercase">Buscar Proyecto <span></span></button>
           <Link to={"/proyectos"} className="font-bold uppercase">
             Proyectos
           </Link>
