@@ -2,8 +2,8 @@ const Alerta = ({ alerta }) => {
   return (
     <div
       className={`${
-        alerta.error ? "from-red-400 to-red-600" : "from-sky-400 to-sky-600"
-      } bg-gradient-to-br text-center p-3 rounded-xl uppercase text-white font-bold text-sm my-5`}
+        alerta.error ? "bg-red-100 text-red-500 font-bold" : "bg-emerald-100 text-emerald-500"
+      } bg-gradient-to-br text-center p-3 rounded-xl uppercase  font-bold text-sm my-5`}
     >
       {alerta.message}
     </div>

@@ -22,6 +22,7 @@ const ModalFormularioTarea = () => {
     alerta,
     submiTarea,
     tarea,
+    cargandoCompletar,
   } = useProyectos();
 
   useEffect(() => {
@@ -204,6 +205,7 @@ const ModalFormularioTarea = () => {
                     </div>
                     <input
                       type="submit"
+                      disabled={cargandoCompletar}
                       value={id ? "Editar Tarea" : "Crear Tarea"}
                       className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold cursor-pointer transition-colors rounded text-sm"
                     />

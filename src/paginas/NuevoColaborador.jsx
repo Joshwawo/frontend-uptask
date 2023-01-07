@@ -27,8 +27,9 @@ const NuevoColaborador = () => {
               <h2 className="text-center mb-10 text-2xl font-bold">Resultado:</h2>
               <div className="flex justify-between items-center gap-2">
                 <p className="text-lg font-bold">{colaborador.nombre}</p>
-                <button onClick={()=>agregarColaborador({email:colaborador.email})} type="button" className="bg-slate-500 px-2 py-2 rounded-lg uppercase
-                text-white font-bold text-sm">Agregar al Proyecto</button>
+                <button onClick={()=>agregarColaborador({email:colaborador.email})} type="button" className="bg-slate-100 text-slate-500 hover:bg-green-100 hover:text-green-500
+                px-2 py-2 rounded-lg uppercase
+                font-bold text-sm">Agregar al Proyecto</button>
               </div>
           </div>
         </div>
