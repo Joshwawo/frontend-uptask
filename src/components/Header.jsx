@@ -20,7 +20,6 @@ const Header = () => {
   useEffect(()=>{
     const handleKeyDown = (e)=>{
       if(e.ctrlKey && e.key === 'i'){
-        console.log('Precionaste ctrl + i, desde el header.jsx')
         handleBuscador()
       }
     }
