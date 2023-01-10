@@ -19,6 +19,7 @@ const ProyectosProvider = ({ children }) => {
   const [modalEliminarColaborador, setModalEliminarColaborador] = useState(false)
   const [modalBuscador, setModalBuscador] = useState(false)
   const [cargandoCompletar, setCargandoCompletar] = useState(false)
+  const [tareaXId, setTareaXId] = useState({})
   
   const navigate = useNavigate();
   const {auth} = useAuth()
@@ -507,6 +508,37 @@ const ProyectosProvider = ({ children }) => {
     setAlerta({})
 
   }
+  const obtenerTarea = async (id) => {
+    setCargando(true);
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+      const config = {
+        headers: {
+          "content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const { data } = await clienteAxios.get(`/api/tareas/${id}`, config)
+      // console.log(data)
+      setTareaXId(data);
+      setAlerta({})
+      // console.log(data)
+    } catch (error) {
+      console.log(error);
+      // navigate('/proyectos')
+      setAlerta({
+        message:error.response.data.message,
+        error:true
+      })
+      setTimeout(() => {
+        setAlerta({})
+      }, 2000);
+    } finally {
+      setCargando(false);
+    }
+  };
 
   return (
     <ProyectosContext.Provider
@@ -542,6 +574,8 @@ const ProyectosProvider = ({ children }) => {
         cambiarEstadoTarea,
         cerrarSesionProyectos,
         cargandoCompletar,
+        obtenerTarea,
+        tareaXId,
 
 
         

@@ -1,6 +1,7 @@
 import { formatearFecha } from "../helpers/FormatearFecha";
 import useProyectos from "../hooks/useProyectos";
 import useAdmin from "../hooks/useAdmin";
+import { Link } from "react-router-dom";
 
 const Tarea = ({ tarea }) => {
   const { handleModalEditarTarea, handleModalEliminarTarea, completarTarea,cargandoCompletar } =
@@ -55,6 +56,8 @@ const Tarea = ({ tarea }) => {
             Eliminar
           </button>
         )}
+
+        <Link to={`/proyectos/tarea/${_id}`} className="bg-purple-200 text-purple-500 px-4 py-3 font-bold uppercase text-sm rounded-lg">Ver</Link>
       </div>
     </div>
   );

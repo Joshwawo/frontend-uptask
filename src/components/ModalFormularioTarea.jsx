@@ -197,7 +197,7 @@ const ModalFormularioTarea = () => {
                       </label>
                       <input
                         id="fecha-entrega"
-                        type="date"
+                        type="datetime-local"
                         className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md outline-blue-200"
                         value={fechaEntrega}
                         onChange={(e) => setFechaEntrega(e.target.value)}
