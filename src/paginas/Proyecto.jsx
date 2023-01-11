@@ -11,6 +11,8 @@ import Spinner from '../components/Spinner'
 import io from 'socket.io-client'
 let socket;
 
+document.title = "Proyectos"
+
 const Proyecto = () => {
   const { obtenerProyecto, proyecto, cargando, handleModalTarea, 
           submitTareasProyecto,eliminarTareaProyecto,actualizarTareaProyecto,cambiarEstadoTarea } = useProyectos();
@@ -63,6 +65,8 @@ const Proyecto = () => {
   // })
   
   // console.log(proyecto)
+  //porque hace 6 renderizaciones??
+  
   
   if (cargando) return <Spinner/>
   return  (

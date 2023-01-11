@@ -1,4 +1,5 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { useEffect } from 'react';
+import {Routes, Route, useLocation} from 'react-router-dom'
 import AuthLayout from './layouts/AuthLayout';
 import ConfirmarCuenta from './paginas/ConfirmarCuenta';
 import Login from './paginas/Login';
@@ -16,8 +17,12 @@ import NuevoColaborador from './paginas/NuevoColaborador';
 import TareaXId from './paginas/TareaXId';
 import Error404 from './paginas/Error/Error404';
 const App = () => {
+  const location = useLocation()
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[location])
   return (
-   <BrowserRouter>
+   
      <AuthProvider>
       <ProyectosProvider >
       <Routes>
@@ -42,7 +47,7 @@ const App = () => {
       
       </ProyectosProvider>
      </AuthProvider>
-   </BrowserRouter>
+   
   );
 };
 
