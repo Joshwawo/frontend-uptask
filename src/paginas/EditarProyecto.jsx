@@ -25,12 +25,12 @@ const EditarProyecto = () => {
 
   if (cargando) return <Spinner/>
   return (
-    <div className="mt-10 ">
-      <div className="flex  justify-between text-center">
-        <p className="font-black text-4xl text-end">
-          Editar Proyecto: {proyecto.nombre}
+    <section className="mt-10 ">
+      <div className="flex justify-center gap">
+        <p className="font-black text-4xl text-end text-gray-800">
+          Editar: {proyecto.nombre}
         </p>
-        <div className="flex items-center gap-2 text-gray-400 hover:text-red-600">
+        <div className="flex items-end  gap-2 text-gray-400 hover:text-red-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -55,7 +55,7 @@ const EditarProyecto = () => {
       <div className="mt-10 flex justify-center">
         <FormularioProyecto />
       </div>
-    </div>
+    </section>
   );
 };
 

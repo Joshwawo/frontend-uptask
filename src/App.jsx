@@ -16,6 +16,7 @@ import EditarProyecto from './paginas/EditarProyecto';
 import NuevoColaborador from './paginas/NuevoColaborador';
 import TareaXId from './paginas/TareaXId';
 import Error404 from './paginas/Error/Error404';
+import {ToastContainer} from 'react-toastify'
 const App = () => {
   const location = useLocation()
   useEffect(()=>{
@@ -44,6 +45,7 @@ const App = () => {
        </Route>
        <Route path='*' element={<Error404/>} />
       </Routes>
+      <ToastContainer/>
       
       </ProyectosProvider>
      </AuthProvider>

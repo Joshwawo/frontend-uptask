@@ -1,4 +1,3 @@
-import {useEffect} from 'react'
 import PreviewProyecto from "../components/PreviewProyecto";
 import useProyectos from "../hooks/useProyectos";
 import Alerta from '../components/Alerta'
@@ -25,12 +24,12 @@ const Proyectos = () => {
   // console.log('Desde Proyectos',proyectos)
   return (
     <div className="mt-10">
-     <div className='flex justify-between items-center'>
-       <h1 className="text-center xl:text-start font-bold text-4xl uppercase">Proyectos</h1>
-       <p className='bg-yellow-100/90 text-yellow-500 font-bold py-2 px-2'>💡Tip puedes navegador por los proyectos con <span className='text-yellow-900'>ctrl + i</span></p>
+     <div className=' md:flex justify-between items-center'>
+       <h1 className="text-center xl:text-start font-bold text-4xl uppercase mx-9">Proyectos</h1>
+       <p className='mt-5 mx-4 md:mt-0 bg-yellow-100/90 text-yellow-500 font-bold py-2 px-2 rounded-lg'>💡Tip puedes navegador por los proyectos con <span className='text-yellow-900'>ctrl + i</span></p>
      </div>
         {message && <Alerta alerta={alerta}/>}
-      <div className="bg-white shadow mt-10 rounded-lg">
+      <div className=" mt-10 rounded-lg mx-4 2xl::mx-0">
         {proyectos.length ? (
           proyectos.map((proyecto)=>(
             <PreviewProyecto key={proyecto._id} proyecto={proyecto}/>

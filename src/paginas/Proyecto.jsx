@@ -70,19 +70,23 @@ const Proyecto = () => {
   
   if (cargando) return <Spinner/>
   return  (
-    <>
-      <div className="flex justify-between mt-10">
-        <h1 className="font-black text-4xl">{proyecto.nombre}</h1>
-        {
+    <div className="mx-2">
+      <div className="flex justify-between mt-10 mx-5 ">
+        <h1 className="font-black text-4xl uppercase">{proyecto.nombre}</h1>
+       <div className="">
+         {
           admin && (
-            <div className="flex items-center gap-2 text-gray-400 hover:text-black">
+            <div className="flex items-center gap-2 text-gray-400 hover:text-blue-500  rounded-md ">
+              <Link to={`/proyectos/editar/${id}`} className="uppercase font-bold">
+            Editar
+          </Link>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
+            className="w-5 h-6"
           >
             <path
               strokeLinecap="round"
@@ -90,19 +94,16 @@ const Proyecto = () => {
               d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
             />
           </svg>
-          <Link to={`/proyectos/editar/${id}`} className="uppercase font-bold">
-            Editar
-          </Link>
+          
         </div>
           )
         }
-      </div>
-      {
+        {
         admin && (
           <button
         type="button"
         onClick={handleModalTarea}
-        className="flex gap-2 items-center justify-center text-sm mt-5 px-4 py-2 w-full md:w-auto rounded-lg uppercase font-bold hover:bg-sky-600 bg-sky-400 text-white text-center"
+        className="flex justify-center text-sm mt-5   w-full md:w-auto rounded-lg uppercase font-bold text-gray-400 hover:text-green-500 text-center"
       >
         
         Nueva Tarea<svg
@@ -122,13 +123,16 @@ const Proyecto = () => {
       </button>
         )
       }
-      <p className="font-bold text-xl mt-10">Tareas del proyecto</p>
+       </div>
+
+      </div>
+      
       {/* <div className="flex justify-center ">
         <div className="w-full md:w-1/3 lg:w-1/4">
           {message && <Alerta alerta={alerta} />}
         </div>
       </div> */}
-      <div className="bg-white shadow mt-10 rounded-lg">
+      <div className="mt-10  rounded-lg">
         {proyecto.tareas?.length ? (
           proyecto.tareas?.map((tarea) => (
             <Tarea key={tarea._id} tarea={tarea} />
@@ -168,7 +172,7 @@ const Proyecto = () => {
       <div className="bg-white shadow mt-10 rounded-lg">
         {proyecto.colaboradores?.length ? (
           proyecto.colaboradores?.map((colaborador) => (
-            <Colaborador key={colaborador} colaborador={colaborador} />
+            <Colaborador key={colaborador._id} colaborador={colaborador} />
           ))
         ) : (
           <p className="text-center my-5 p-10">
@@ -183,7 +187,7 @@ const Proyecto = () => {
       <ModalFormularioTarea />
       <ModalEliminarTarea />
       <ModalEliminarColaborador />
-    </>
+    </div>
   );
 };
 

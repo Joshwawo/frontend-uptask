@@ -1,7 +1,6 @@
 import { Fragment, useState } from 'react'
 import { Combobox, Dialog, Transition } from '@headlessui/react'
 import useProyectos from '../hooks/useProyectos'
-import {Link} from 'react-router-dom'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -13,6 +12,7 @@ const Busqueda = () => {
 
     const proyectosFiltrados = busqueda === '' ? []
     : proyectos.filter((proyecto) => proyecto.nombre.toLowerCase().includes(busqueda.toLowerCase()))
+
 
     
     return (
@@ -43,6 +43,7 @@ const Busqueda = () => {
                     as="div"
                     className="mx-auto max-w-xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all"
                     onChange={(proyecto)=> (window.location = `/proyectos/${proyecto._id}`)}
+                    
                     // onChange={(proyecto)=> <Link to={`/proyectos/${proyecto._id}`}/>}
                 >
                     <div className="relative">
@@ -50,6 +51,7 @@ const Busqueda = () => {
                             className="h-12 w-full border-0 bg-transparent pl-4 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm outline-none"
                             placeholder="Buscar..."
                             onChange={e=>setBusqueda(e.target.value)}
+                            
                         />
                     </div>
 
@@ -57,7 +59,7 @@ const Busqueda = () => {
                         <Combobox.Options static className="max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800">
                             {proyectosFiltrados.map((proyecto)=>(
                                 <Combobox.Option key={proyecto._id} value={proyecto} 
-                                className={({active}) =>classNames(`cursor-default select-none px-4 py-2 `,active && ' bg-sky-600 text-white') }>
+                                className={({active}) =>classNames(`cursor-default select-none px-4 py-2 `,active && ' bg-sky-200 text-sky-500') }>
                                     {/* <Link to={`/proyectos/${proyecto._id}`} className="flex items-center space-x-3">
                                         {proyecto.nombre}
                                     </Link> */}

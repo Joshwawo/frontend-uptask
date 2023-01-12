@@ -55,7 +55,7 @@ const FormularioProyecto = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white py-10 px-5 md:w-1/2 rounded-lg shadow mx-auto"
+      className="bg-gray-100 py-10 px-5 md:w-1/2 rounded-lg  mx-auto"
     >
       {message && <Alerta alerta={alerta} />}
       <div className="mb-5">
@@ -68,7 +68,7 @@ const FormularioProyecto = () => {
         <input
           id="nombre"
           type="text"
-          className="border w-full p-2 mt-2 placeholder-gray-400 rounded-md outline-blue-400"
+          className="border w-full p-2 mt-2 placeholder-gray-00 rounded-md outline-blue-400"
           placeholder="Nombre del proyecto"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
@@ -98,7 +98,7 @@ const FormularioProyecto = () => {
         </label>
         <input
           id="fecha-entrega"
-          type="date"
+          type="datetime-local"
           className="border w-full p-2 mt-2 placeholder-gray-400 rounded-md outline-blue-400"
           value={fechaEntrega}
           onChange={(e) => setFechaEntrega(e.target.value)}
@@ -123,7 +123,7 @@ const FormularioProyecto = () => {
       <input
         type="submit"
         value={`${id ? 'Actualizar Proyecto' :'Crear Proyecto'}`}
-        className="bg-sky-600 w-full p-3 uppercase font-bold text-white rounded cursor-pointer hover:bg-sky-700 transition-colors"
+        className={`${id ? 'bg-cyan-300 text-cyan-500 ':'bg-green-300 text-green-500 '}  w-full p-3 uppercase font-bold  rounded cursor-pointer transition-colors`}
       />
     </form>
   );

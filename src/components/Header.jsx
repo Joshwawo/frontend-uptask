@@ -29,19 +29,19 @@ const Header = () => {
     }
   },[])
   return (
-    <header className="px-4 py-5 bg-white border-b">
+    <header className="px-4 py-2 ">
       <div className="md:flex md:justify-between">
-        <Link to={"/proyectos"} className="flex md:block items-center gap-1">
-          <h2 className="text-4xl text-sky-400  font-black text-center mb-5 md:mb-0">
-            UpTask
+        <Link to={"/proyectos"} className="flex md:block items-end justify-between">
+          <h2 className="text-3xl text-purple-300  font-black text-center  md:mb-0">
+          TaskSync 
             
           </h2>
-          <span className="font-semibold ">{auth.nombre}</span>
+          <span className="font-semibold">{auth.nombre}</span>
           
         </Link>
         
-        <div className="flex items-center md gap-4">
-          <button onClick={handleBuscador} type="button" className="font-bold uppercase">Buscar Proyecto <span></span></button>
+        <div className="flex items-center md gap-4 text-gray-700">
+          {/* <button onClick={handleBuscador} type="button" className="font-bold uppercase">Buscar Proyecto <span></span></button> */}
           <Link to={"/proyectos"} className="font-bold uppercase">
             Proyectos
           </Link>

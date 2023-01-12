@@ -6,7 +6,7 @@ const PreviewProyecto = ({ proyecto }) => {
   const { auth } = useAuth();
   const { nombre, _id, cliente, creador } = proyecto;
   return (
-    <div className="border-b p-5 flex flex-col md:flex-row justify-between">
+    <div className="border-b-2 border-b-gray-200 last-of-type:border-none hover:bg-gray-200/50 shadow-gray-300 p-5 flex flex-col md:flex-row justify-between">
       <div className="flex items-center gap-2">
       <p className="flex-1 font-semibold">
         {nombre}{" "}

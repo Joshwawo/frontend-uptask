@@ -3,8 +3,13 @@ import clienteAxios from "../config/clienteAxios";
 import { useNavigate } from "react-router-dom";
 import io from 'socket.io-client'
 import useAuth from '../context/AuthProvider'
-let socket;
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import UpdateIcon from "../components/svgs/UpdateIcon";
 
+
+
+let socket;
 const ProyectosContext = createContext();
 
 const ProyectosProvider = ({ children }) => {
@@ -89,10 +94,27 @@ const ProyectosProvider = ({ children }) => {
       // console.log(proyectosActualizados)
       setProyectos(proyectosActualizados);
       //mostrar la alerta
-      setAlerta({
-        message: "Proyecto actualizado correctamente",
-        error: false,
-      });
+      // setAlerta({
+      //   message: "Proyecto actualizado correctamente",
+      //   error: false,
+      // });
+
+      toast.info('Proyecto actualizado correctamente', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        style: {
+          background: 'rgb(155, 218, 249,0.9)',
+          color: 'rgb(12, 141, 206, 0.8)',
+          fontWeight: "bolder",
+          colorScheme: 'light',
+
+        },
+        icon: ()=> <UpdateIcon/>
+    
+      })
 
       navigate("/proyectos");
 
@@ -102,7 +124,16 @@ const ProyectosProvider = ({ children }) => {
       //redireccionar
       // console.log(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error.response.data.message);
+      toast.error(`${error.response.data.message === undefined ? 'Error inesperado D:' : error.response.data.message}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        className: 'bg-red-200 text-red-500 rounded-md'
+
+      })
     }
   };
 
@@ -119,15 +150,24 @@ const ProyectosProvider = ({ children }) => {
       });
 
       setProyectos([...proyectos, data]);
-      setAlerta({
-        message: "Proyecto creado correctamente",
-        error: false,
-      });
+      // setAlerta({
+      //   message: "Proyecto creado correctamente",
+      //   error: false,
+      // });
+
+      toast.success('Proyecto creado correctamente', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+    
+      })
 
       setTimeout(() => {
         setAlerta({});
         navigate("/proyectos");
-      }, 2000);
+      }, 500);
 
       // console.log(data);
     } catch (error) {
@@ -234,6 +274,20 @@ const ProyectosProvider = ({ children }) => {
 
       setAlerta({});
       setModalFormularioTarea(false);
+
+      toast.success('Tarea creada correctamente', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+
+
+
 
       //*SOCKET IO
       socket.emit('nueva-tarea', data)
