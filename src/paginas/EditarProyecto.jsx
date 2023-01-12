@@ -20,6 +20,7 @@ const EditarProyecto = () => {
       eliminarProyecto(id)
     }else{
       // console.log('no')
+      // return <Fragment/>
     }
   };
 
