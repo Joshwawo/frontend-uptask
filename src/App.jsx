@@ -1,22 +1,23 @@
 import { useEffect } from 'react';
 import {Routes, Route, useLocation} from 'react-router-dom'
 import AuthLayout from './layouts/AuthLayout';
-import ConfirmarCuenta from './paginas/ConfirmarCuenta';
-import Login from './paginas/Login';
-import NuevoPassword from './paginas/NuevoPassword';
-import OlvidePassword from './paginas/OlvidePassword';
-import Registrar from './paginas/Registrar';
+import ConfirmarCuenta from './paginas/forms/ConfirmarCuenta';
+import Login from './paginas/forms/Login';
+import NuevoPassword from './paginas/usuario/NuevoPassword';
+import OlvidePassword from './paginas/forms/OlvidePassword';
+import Registrar from './paginas/forms/Registrar';
 import {AuthProvider} from './context/AuthProvider'
 import {ProyectosProvider} from './context/ProyectosProvider'
 import RutaProtegida from './layouts/RutaProtegida';
-import Proyectos from './paginas/Proyectos';
-import NuevoProyecto from './paginas/NuevoProyecto';
-import Proyecto from './paginas/Proyecto';
-import EditarProyecto from './paginas/EditarProyecto';
-import NuevoColaborador from './paginas/NuevoColaborador';
-import TareaXId from './paginas/TareaXId';
+import Proyectos from './paginas/usuario/Proyectos';
+import NuevoProyecto from './paginas/usuario/NuevoProyecto';
+import Proyecto from './paginas/usuario/Proyecto';
+import EditarProyecto from './paginas/usuario/EditarProyecto';
+import NuevoColaborador from './paginas/usuario/NuevoColaborador';
+import TareaXId from './paginas/usuario/TareaXId';
 import Error404 from './paginas/Error/Error404';
 import {ToastContainer} from 'react-toastify'
+import Perfil from './paginas/usuario/Perfil';
 const App = () => {
   const location = useLocation()
   useEffect(()=>{
@@ -37,6 +38,7 @@ const App = () => {
        {/* Rutas Protegidas */}
        <Route path='/proyectos' element={<RutaProtegida/>}>
         <Route index element={<Proyectos/>}/>
+        <Route path='perfil' element={<Perfil/>}/>
         <Route path='tarea/:id' element={<TareaXId/>} />
         <Route path='crear' element={<NuevoProyecto/>} />
         <Route path='nuevo-colaborador/:id' element={<NuevoColaborador/>} />

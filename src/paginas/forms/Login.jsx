@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Alerta from "../components/Alerta";
-import clienteAxios from "../config/clienteAxios";
-import useAuth from "../context/AuthProvider";
+import Alerta from "../../components/Alerta";
+import clienteAxios from "../../config/clienteAxios";
+import useAuth from "../../context/AuthProvider";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -48,15 +48,13 @@ const Login = () => {
 
   return (
     <>
-      <h1 className="text-sky-600 font-black text-6xl capitalize">
-        Inicia Sesión y administra tus{" "}
-        <span className="text-slate-700">proyectos</span>
-      </h1>
+      <h1 className="text-sky-400 font-black text-6xl capitalize text-center">
+        TaskSync{" "} </h1>
       {message && <Alerta alerta={alerta} />}
 
       <form
         onSubmit={handleSubmit}
-        className="mt-10 bg-white shadow rounded-lg p-10"
+        className="mt-10   rounded-lg p-10"
       >
         <div className="my-5">
           <label
@@ -95,7 +93,7 @@ const Login = () => {
         <input
           type="submit"
           value="Iniciar sesión"
-          className="bg-sky-700 uppercase w-full mb-5 py-3 text-white font-bold rounded hover:cursor-pointer hover:bg-sky-800 transition-colors"
+          className="bg-sky-400 text-white uppercase w-full mb-5 py-3  font-bold rounded hover:cursor-pointer hover:bg-sky-500 hover:text-white transition-colors"
         />
       </form>
       <nav className="lg:flex lg:justify-between">

@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Alerta from "../components/Alerta";
-import clienteAxios from "../config/clienteAxios";
+import Alerta from "../../components/Alerta";
+import clienteAxios from "../../config/clienteAxios";
 
 const NuevoPassword = () => {
   const [tokenValido, setTokenValido] = useState(false);

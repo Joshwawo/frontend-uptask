@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import FormularioColaborador from "../components/FormularioColaborador";
-import useProyectos from "../hooks/useProyectos";
+import FormularioColaborador from "../../components/FormularioColaborador";
+import useProyectos from "../../hooks/useProyectos";
 import { useParams } from "react-router-dom";
-import Spinner from '../components/Spinner'
-import Alerta from "../components/Alerta";
+import Spinner from '../../components/Spinner'
+import Alerta from "../../components/Alerta";
 
 const NuevoColaborador = () => {
   const { obtenerProyecto, proyecto, cargando, colaborador,agregarColaborador,alerta } = useProyectos();

@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import useProyectos from "../hooks/useProyectos";
+import useProyectos from "../../hooks/useProyectos";
 import { useParams } from "react-router-dom";
-import FormularioProyecto from "../components/FormularioProyecto";
-import Spinner from '../components/Spinner'
-import { Fragment } from "react";
+import FormularioProyecto from "../../components/FormularioProyecto";
+import Spinner from '../../components/Spinner'
 
 const EditarProyecto = () => {
   const { obtenerProyecto, proyecto, cargando,eliminarProyecto } = useProyectos();

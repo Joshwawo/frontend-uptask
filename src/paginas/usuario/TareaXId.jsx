@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import useProyectos from "../hooks/useProyectos";
-import { formatearFecha } from "../helpers/FormatearFecha";
-import Spinner from "../components/Spinner";
+import useProyectos from "../../hooks/useProyectos";
+import { formatearFecha } from "../../helpers/FormatearFecha";
+import Spinner from "../../components/Spinner";
 const TareaXId = () => {
   const { obtenerTarea, tareaXId, cargando } = useProyectos();
   const { id } = useParams();

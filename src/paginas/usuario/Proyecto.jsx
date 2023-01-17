@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import ModalEliminarTarea from "../components/ModalEliminarTarea";
-import ModalFormularioTarea from "../components/ModalFormularioTarea";
-import Tarea from "../components/Tarea";
-import useProyectos from "../hooks/useProyectos";
-import useAdmin from "../hooks/useAdmin";
-import Colaborador from "../components/Colaborador";
-import ModalEliminarColaborador from "../components/ModalEliminarColaborador";
-import Spinner from '../components/Spinner'
+import ModalEliminarTarea from "../../components/ModalEliminarTarea";
+import ModalFormularioTarea from "../../components/ModalFormularioTarea";
+import Tarea from "../../components/Tarea";
+import useProyectos from "../../hooks/useProyectos";
+import useAdmin from "../../hooks/useAdmin";
+import Colaborador from "../../components/Colaborador";
+import ModalEliminarColaborador from "../../components/ModalEliminarColaborador";
+import Spinner from '../../components/Spinner'
 import io from 'socket.io-client'
 let socket;
 

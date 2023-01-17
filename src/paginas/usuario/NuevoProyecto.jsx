@@ -1,4 +1,4 @@
-import FormularioProyecto from "../components/FormularioProyecto";
+import FormularioProyecto from "../../components/FormularioProyecto";
 
 const NuevoProyecto = () => {
   return (

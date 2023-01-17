@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Alerta from "../components/Alerta";
-import clienteAxios from "../config/clienteAxios";
+import Alerta from "../../components/Alerta";
+import clienteAxios from "../../config/clienteAxios";
 
 const Registrar = () => {
   const [nombre, setNombre] = useState("");
@@ -38,7 +38,7 @@ const Registrar = () => {
     }
 
     //Crear usuario en la api
-    console.log("Creando...");
+    // console.log("Creando...");
 
     setAlerta({});
 
@@ -70,14 +70,14 @@ const Registrar = () => {
 
   return (
     <>
-      <h1 className="text-sky-600 font-black text-6xl capitalize">
-        Crea tu cuenta y administra tus{" "}
-        <span className="text-slate-700">proyectos</span>
+      <h1 className="text-sky-400 font-black text-6xl capitalize text-center">
+        Registrarse
+        
       </h1>
       {message && <Alerta alerta={alerta} />}
       <form
         onSubmit={handleSubmit}
-        className="mt-10 bg-white shadow rounded-lg p-10"
+        className="mt-10 rounded-lg p-10"
       >
         <div className="my-5">
           <label
@@ -146,7 +146,7 @@ const Registrar = () => {
         <input
           type="submit"
           value="Crear Cuenta"
-          className=" uppercase bg-sky-700 w-full mb-5 py-3 text-white font-bold rounded hover:cursor-pointer hover:bg-sky-800 transition-colors"
+          className=" uppercase bg-sky-400 w-full mb-5 py-3 text-white font-bold rounded hover:cursor-pointer hover:bg-sky-500 transition-colors"
         />
       </form>
       <nav className="lg:flex lg:justify-between">

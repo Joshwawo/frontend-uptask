@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Alerta from "../components/Alerta";
-import clienteAxios from "../config/clienteAxios";
+import Alerta from "../../components/Alerta";
+import clienteAxios from "../../config/clienteAxios";
 
 const OlvidePassword = () => {
   const [email, setEmail] = useState("");
@@ -51,15 +51,14 @@ const OlvidePassword = () => {
 
   return (
     <>
-      <h1 className="text-sky-600 font-black text-6xl capitalize">
-        Recupera tu acceso y administra tus{" "}
-        <span className="text-slate-700">proyectos</span>
+      <h1 className="text-sky-400 font-black text-6xl capitalize text-center">
+        Recuperar Contraseña
       </h1>
       {message && <Alerta alerta={alerta}/>}
 
       <form
         onSubmit={handleSubmit}
-        className="mt-10 bg-white shadow rounded-lg p-10"
+        className="mt-10  rounded-lg p-10"
       >
         <div className="my-5">
           <label
@@ -81,7 +80,7 @@ const OlvidePassword = () => {
         <input
           type="submit"
           value="Enviar Instrucciones"
-          className=" uppercase bg-sky-700 w-full mb-5 py-3 text-white font-bold rounded hover:cursor-pointer hover:bg-sky-800 transition-colors"
+          className=" uppercase bg-sky-400 w-full mb-5 py-3 text-white font-bold rounded hover:cursor-pointer hover:bg-sky-500 transition-colors"
         />
       </form>
       <nav className="lg:flex lg:justify-between">
