@@ -26,7 +26,7 @@ const Proyecto = () => {
   //?Este useEfect es solo para abrir la conexion con socket.io, por eso tiene dependecias
 
   useEffect(()=>{
-    socket = io(import.meta.env.VITE_BACKEND_URL)
+    socket = io(import.meta.env.VITE_BACKEND_URLOCAL)
     socket.emit('abrir-proyecto',id)
   },[])
 

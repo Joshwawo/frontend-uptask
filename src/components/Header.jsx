@@ -49,7 +49,7 @@ const Header = () => {
       >
         Nuevo Proyecto
       </Link>
-      <Link to={"/proyectos"} className="font-bold uppercase">
+      <Link to={"/proyectos/perfil"} className="font-bold uppercase">
             Perfil
           </Link>
           <button
